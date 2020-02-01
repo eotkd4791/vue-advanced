@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import ToolBar from './components/ToolBar.vue';
+import ToolBar from "./components/ToolBar.vue";
 
 export default {
   components: {
-    ToolBar,
+    ToolBar
   }
-}
+};
 </script>
 
 <style>
@@ -22,10 +22,23 @@ body {
   margin: 0;
   padding: 0;
 }
-.page-enter-active, .page-leave-active {
-  transition: opacity .5s;
+a {
+  color: #34495e;
+  text-decoration: none;
 }
-.page-enter, .page-leave-to {
+a:hover {
+  color: #42b883;
+  text-decoration: underline;
+}
+a .router-link-exact-active {
+  text-decoration: underline;
+}
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
   opacity: 0;
 }
 </style>
