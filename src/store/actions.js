@@ -9,7 +9,7 @@ import {
 
 export default {
   FETCH_NEWS(context) {
-    fetchNewsList()
+    return fetchNewsList()
       .then(response => {
         window.console.log("NEWS");
         context.commit('SET_NEWS', response.data);
@@ -20,7 +20,7 @@ export default {
       });
   },
   FETCH_ASK({ commit }) {
-    fetchAskList()
+    return fetchAskList()
       .then(({ data }) => {
         window.console.log("ASK");
         commit('SET_ASK', data);
@@ -30,7 +30,7 @@ export default {
       });
   },
   FETCH_JOBS({ commit }) {  // Destructuring.. FETCH_NEWS와 비교
-    fetchJobsList()
+    return fetchJobsList()
       .then(({ data }) => {
         window.console.log("JOBS");
         commit('SET_JOBS', data);
@@ -40,7 +40,7 @@ export default {
       });
   },
   FETCH_USER({ commit }, name) {
-    fetchUserInfo(name)
+    return fetchUserInfo(name)
       .then(({ data }) => {
         window.console.log("USERS");
         commit('SET_USER', data);
@@ -50,7 +50,7 @@ export default {
       });
   },
   FETCH_ITEM({ commit }, id) {
-    fetchCommentItem(id)
+    return fetchCommentItem(id)
       .then(({ data }) => {
         commit('SET_ITEM', data);
         window.console.log("ITEM");
@@ -60,8 +60,11 @@ export default {
       });
   },
   FETCH_LIST({ commit }, pageName) {
-    fetchList(pageName)
-      .then(({ data }) => commit('SET_LIST', data))
+    return fetchList(pageName)
+      .then(response => {
+        commit('SET_LIST', response.data);
+        return response;
+      })
       .catch((error) => window.console.log(error));
   }
 }

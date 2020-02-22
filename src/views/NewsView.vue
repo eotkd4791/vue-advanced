@@ -6,6 +6,7 @@
 
 <script>
 import ListItem from "../components/ListItem.vue";
+// import Bus from "../utils/bus.js";
 import ListMixin from "../mixins/ListMixin.js";
 
 export default {
