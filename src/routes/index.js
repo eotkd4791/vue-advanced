@@ -53,7 +53,7 @@ export const router = new VueRouter({
       beforeEnter: (to, from, next) => {
         Bus.$emit("start:spinner");
         store.dispatch("FETCH_LIST", to.name)
-          .then(() => next())
+          .then(() => next()) //next함수를 호출해야 라우터 이동이 가능하다.
           .catch(error => {
             window.console.log(error);
           });
