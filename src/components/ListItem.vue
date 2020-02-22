@@ -10,9 +10,7 @@
               <a v-bind:href="item.url">{{ item.title }}</a>
             </template>
             <template v-else>
-              <router-link v-bind:to="`item/${item.id}`">
-                {{ item.title }}
-              </router-link>
+              <router-link v-bind:to="`item/${item.id}`">{{ item.title }}</router-link>
             </template>
           </p>
           <small class="link-text">
@@ -21,8 +19,7 @@
               v-bind:to="`user/${item.user}`"
               class="link-text"
               v-if="item.user"
-              >{{ item.user }}
-            </router-link>
+            >{{ item.user }}</router-link>
             <a :href="item.url" v-else>{{ item.domain }}</a>
           </small>
         </div>
@@ -38,26 +35,9 @@ export default {
       name: this.$route.name
     };
   },
-  created() {
-    let ActionName;
-    if (this.name === "news") {
-      ActionName = "FETCH_NEWS";
-    } else if (this.name === "ask") {
-      ActionName = "FETCH_ASK";
-    } else if (this.name === "jobs") {
-      ActionName = "FETCH_JOBS";
-    }
-    this.$store.dispatch(ActionName);
-  },
   computed: {
     listItems() {
-      if (this.name === "news") {
-        return this.$store.state.news;
-      } else if (this.name === "ask") {
-        return this.$store.state.ask;
-      } else if (this.name === "jobs") {
-        return this.$store.state.jobs;
-      }
+      return this.$store.state.list;
     }
   }
 };
