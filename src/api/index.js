@@ -7,14 +7,23 @@ const config = {
 function fetchNewsList() {
   return axios.get(`${config.baseUrl}news/1.json`);
 }
-function fetchJobsList() {
-  return axios.get(`${config.baseUrl}jobs/1.json`);
+async function fetchJobsList() {
+  try {
+    const response = await axios.get(`${config.baseUrl}jobs/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 function fetchAskList() {
   return axios.get(`${config.baseUrl}ask/1.json`);
 }
-function fetchList(pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`)
+async function fetchList(pageName) {
+  try {
+    return await axios.get(`${config.baseUrl}${pageName}/1.json`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 function fetchUserInfo(username) {
   return axios.get(`${config.baseUrl}user/${username}.json`);
