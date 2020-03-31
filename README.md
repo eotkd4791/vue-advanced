@@ -1,24 +1,5 @@
 # vue-hackernews
 
-## Project setup
-```
-npm install
-```
+![해커 뉴스(Hacker News)](https://news.ycombinator.com/) 사이트를 클론 코딩하였습니다.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+사용 기술: HTML, CSS, JavaScript, Vue.js, Vuex, axios
